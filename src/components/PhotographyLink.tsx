@@ -34,19 +34,15 @@ const PhotographyLink = () => {
         onMouseLeave={() => setHovered(false)}
       >
         <PhotographyHeader>{linkText}</PhotographyHeader>
-        <PhotographyImage1 src={imgOneSource} />
-        <PhotographyImage2 src={imgTwoSource} />
+        <PhotographyImage src={imgOneSource} height={200} width={350} />
+        <PhotographyImage src={imgTwoSource} height={200} width={150} />
       </PhotographyImageContainer>
     </Link>
   );
 };
 
-const PhotographyImage1 = (props: any) => {
-  return <img height={200} width={350} src={props.src} />;
-};
-
-const PhotographyImage2 = (props: any) => {
-  return <img height={200} width={150} src={props.src} />;
+const PhotographyImage = (props: any) => {
+  return <img height={props.height} width={props.width} src={props.src} />;
 };
 
 const PhotographyHeader = styled.h1`
