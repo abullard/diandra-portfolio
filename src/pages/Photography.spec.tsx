@@ -1,9 +1,11 @@
-import React from 'react';
-import { render, screen } from '@testing-library/react';
-import Home from './Home';
+import React from "react";
+import { render } from "../utils/test-utils";
+import Photography from "./Photography";
+import { screen } from "@testing-library/react";
 
-test('renders learn react link', () => {
-  render(<Home />);
-  const linkElement = screen.getByText(/learn react/i);
-  expect(linkElement).toBeInTheDocument();
+describe("<Photography />", () => {
+  it("should render", () => {
+    render(<Photography />);
+    expect(screen.getByText("Photography")).toBeInTheDocument();
+  });
 });

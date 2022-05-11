@@ -15,6 +15,7 @@ const Photography = () => {
 
   return (
     <div>
+      <h1>Photography</h1>
       <ImageList sx={{ width: 500, height: 450 }} cols={3} rowHeight={200}>
         {photos.map((photo: photoModel) => (
           <ImageListItem key={photo.uri}>
