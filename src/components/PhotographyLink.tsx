@@ -28,12 +28,14 @@ const PhotographyLink = () => {
   }, [hovered]);
 
   return (
-    <Link to="photography">
+    <Link to="photography" aria-label="go-to-photography">
       <PhotographyImageContainer
         onMouseEnter={() => setHovered(true)}
         onMouseLeave={() => setHovered(false)}
       >
-        <PhotographyHeader>{linkText}</PhotographyHeader>
+        <PhotographyLinkTextContainer>
+          <h1>{linkText}</h1>
+        </PhotographyLinkTextContainer>
         <PhotographyImage src={imgOneSource} height={200} width={350} />
         <PhotographyImage src={imgTwoSource} height={200} width={150} />
       </PhotographyImageContainer>
@@ -45,14 +47,17 @@ const PhotographyImage = (props: any) => {
   return <img height={props.height} width={props.width} src={props.src} />;
 };
 
-const PhotographyHeader = styled.h1`
-  position: absolute;
-`;
-
 const PhotographyImageContainer = styled.div`
   padding: 1rem;
   max-height: 200px;
   max-width: 50vw;
+  position: relative;
+`;
+
+const PhotographyLinkTextContainer = styled.div`
+  position: absolute;
+  left: 50px;
+  bottom: 5px;
 `;
 
 export default PhotographyLink;
