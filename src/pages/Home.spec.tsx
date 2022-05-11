@@ -1,7 +1,7 @@
 import React from "react";
 import { screen } from "@testing-library/react";
 import Home from "./Home";
-import { render } from "../test/test-utils.jsx";
+import { render } from "../utils/test-utils.js";
 
 describe("<Home />", function () {
   it("should render", function () {
