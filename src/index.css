@@ -11,3 +11,8 @@ code {
   font-family: source-code-pro, Menlo, Monaco, Consolas, 'Courier New',
     monospace;
 }
+
+@font-face {
+  font-family: 'futura';
+  src: local('Futura PT Light'), url('./assets/fonts/Futura PT Light.ttf') format('truetype');
+}

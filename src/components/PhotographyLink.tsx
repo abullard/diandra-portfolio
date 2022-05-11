@@ -7,8 +7,9 @@ import OFFICE_PHOTO from "../assets/photos/office.jpeg";
 import OFFICE_LIGHTENED_PHOTO from "../assets/photos/office_lightened.jpeg";
 
 const PhotographyLink = () => {
+  const LINK_TEXT_CAPS = "Photography".toUpperCase();
   const [hovered, setHovered] = useState<Boolean>(false);
-  const [linkText, setLinkText] = useState<string>("Photography");
+  const [linkText, setLinkText] = useState<string>(LINK_TEXT_CAPS);
   const [imgOneSource, setImgOneSource] =
     useState<string>(HOME_LIGHTENED_PHOTO);
   const [imgTwoSource, setImgTwoSource] = useState<string>(
@@ -23,7 +24,7 @@ const PhotographyLink = () => {
     } else {
       setImgOneSource(HOME_LIGHTENED_PHOTO);
       setImgTwoSource(OFFICE_LIGHTENED_PHOTO);
-      setLinkText("Photography");
+      setLinkText(LINK_TEXT_CAPS);
     }
   }, [hovered]);
 
@@ -34,7 +35,7 @@ const PhotographyLink = () => {
         onMouseLeave={() => setHovered(false)}
       >
         <PhotographyLinkTextContainer>
-          <h1>{linkText}</h1>
+          <LinkText>{linkText}</LinkText>
         </PhotographyLinkTextContainer>
         <PhotographyImage src={imgOneSource} height={200} width={350} />
         <PhotographyImage src={imgTwoSource} height={200} width={150} />
@@ -58,6 +59,13 @@ const PhotographyLinkTextContainer = styled.div`
   position: absolute;
   left: 50px;
   bottom: 5px;
+`;
+
+const LinkText = styled.h1`
+  text-decoration: none;
+  font-family: futura;
+  color: #282c34;
+  font-size: 4rem;
 `;
 
 export default PhotographyLink;
