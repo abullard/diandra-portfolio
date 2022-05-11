@@ -1,9 +1,13 @@
-import React from 'react';
-import { render, screen } from '@testing-library/react';
-import Home from './Home';
+import React from "react";
+import { screen } from "@testing-library/react";
+import Home from "./Home";
+import { render } from "../test/test-utils.jsx";
 
-test('renders learn react link', () => {
-  render(<Home />);
-  const linkElement = screen.getByText(/learn react/i);
-  expect(linkElement).toBeInTheDocument();
+describe("<Home />", function () {
+  it("should render", function () {
+    render(<Home />);
+
+    const link = screen.getByRole("link", { name: "go-to-photography" });
+    expect(link).toHaveAttribute("href", "/photography");
+  });
 });
