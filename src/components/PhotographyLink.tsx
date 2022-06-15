@@ -1,10 +1,10 @@
 import React, { useEffect, useState } from "react";
 import { Link } from "react-router-dom";
 import styled from "@emotion/styled";
-import HOME_PHOTO from "../assets/photos/home.jpeg";
-import HOME_LIGHTENED_PHOTO from "../assets/photos/home_lightened.jpeg";
-import OFFICE_PHOTO from "../assets/photos/office.jpeg";
-import OFFICE_LIGHTENED_PHOTO from "../assets/photos/office_lightened.jpeg";
+import HOME_PHOTO from "../assets/static_photos/home.jpeg";
+import HOME_LIGHTENED_PHOTO from "../assets/static_photos/home_lightened.jpeg";
+import OFFICE_PHOTO from "../assets/static_photos/office.jpeg";
+import OFFICE_LIGHTENED_PHOTO from "../assets/static_photos/office_lightened.jpeg";
 import { Colors } from "../utils/Colors";
 
 const PhotographyLink = () => {
