@@ -1,5 +1,5 @@
 import { fileSystemService } from './fileSystemService';
-import { PhotoModel } from '../components/useImages';
+import { ImageModel } from '../components/useImages';
 import { chance } from '../utils/setup-chance';
 import fs from 'fs';
 
@@ -7,7 +7,7 @@ jest.mock('fs');
 // const mockFs = fs as jest.Mocked<typeof fs>;
 
 describe('fileSystemService', () => {
-    let imageList: PhotoModel[];
+    let imageList: ImageModel[];
 
     beforeEach(() => {
         imageList = [chance.photoModel(), chance.photoModel()];

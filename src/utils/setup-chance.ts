@@ -1,13 +1,13 @@
 import Chance from 'chance';
-import { PhotoCategory } from '../pages/Photography';
-import { PhotoModel } from '../components/useImages';
+import { ImageModel } from '../components/useImages';
+import { PhotoCategory } from '../scripts/generateJson';
 
 export const chance = new Chance() as Chance.Chance & CustomChance;
 
 export interface CustomChance {
     longWord(options?: any): string;
 
-    photoModel(options?: any): PhotoModel;
+    photoModel(options?: any): ImageModel;
 
     photoCategory(): string;
 }
@@ -29,6 +29,6 @@ chance.mixin({
     }),
 
     photoCategory: () => {
-        return chance.natural({ min: 1, max: 3 }) as PhotoCategory;
+        return chance.natural({ min: 0, max: 2 }) as PhotoCategory;
     },
 });

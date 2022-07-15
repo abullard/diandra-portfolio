@@ -1,33 +1,25 @@
 import React from 'react';
 import { render } from '../utils/test-utils';
 import { Photography } from './Photography';
-import { screen } from '@testing-library/react';
-import { fileSystemService } from '../scripts/fileSystemService';
+import { screen, waitFor } from '@testing-library/react';
 import { chance } from '../utils/setup-chance';
-import { PhotoModel } from '../components/useImages';
+import { ImageModel } from '../components/useImages';
 
-jest.mock('../scripts/fileSystemService');
-const mockFsService = fileSystemService as jest.Mocked<typeof fileSystemService>;
+jest.mock('../assets/images.json', () => ({}));
 
 describe('<Photography />', () => {
-    let imageList: PhotoModel[];
-
-    beforeEach(() => {
-        imageList = [chance.photoModel()];
-        mockFsService.readdirAsync.mockResolvedValue(imageList);
-    });
-
     it('should render', () => {
         render(<Photography />);
 
         expect(screen.getByText('Photography')).toBeInTheDocument();
     });
 
-    it('should read list of images from json', () => {
+    it('should read list of images from json', async () => {
         render(<Photography />);
 
-        console.log(imageList);
-        expect(mockFsService.readdirAsync).toHaveBeenCalled();
-        // expect(screen.getByAltText('')).toBeInTheDocument();
+        await waitFor(() => {
+            expect(mockFsService.readImageFile).toHaveBeenCalled();
+            expect(screen.getByAltText(imageList[0].title!)).toBeInTheDocument();
+        });
     });
 });

@@ -1,25 +1,20 @@
 import { render, screen, waitFor } from '@testing-library/react';
 import React from 'react';
-import useImages, { PhotoModel } from './useImages';
-import { fileSystemService } from '../scripts/fileSystemService';
+import useImages, { ImageModel } from './useImages';
 import { chance } from '../utils/setup-chance';
 
-jest.mock('../scripts/fileSystemService');
-const mockFsService = fileSystemService as jest.Mocked<typeof fileSystemService>;
-
-describe('useImages hook', () => {
-    let imageList: PhotoModel[];
+describe('useImages()', () => {
+    let imageList: ImageModel[];
 
     beforeEach(() => {
         imageList = [chance.photoModel(), chance.photoModel()];
-        mockFsService.readImageFile.mockReturnValueOnce(imageList);
+        jest.mock('../assets/images.json');
     });
 
     it('should read the images json file, and get a list of PhotoModels back', async () => {
         render(<TestWrapper />);
 
         await waitFor(async () => {
-            expect(mockFsService.readImageFile).toHaveBeenCalledTimes(1);
             expect(screen.queryByText(imageList[0].title!)).toBeInTheDocument();
         });
     });

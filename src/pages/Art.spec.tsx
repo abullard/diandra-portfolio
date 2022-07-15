@@ -1,9 +1,12 @@
 import React from 'react';
 import { render, screen } from '@testing-library/react';
-import Home from './Home';
+import Art from './Art';
 
-test('renders learn react link', () => {
-  render(<Home />);
-  const linkElement = screen.getByText(/learn react/i);
-  expect(linkElement).toBeInTheDocument();
+describe('<Art />', () => {
+    it('should render', () => {
+        // AJB: need to do this still
+        render(<Art />);
+
+        expect(screen.getByText('Art')).toBeInTheDocument();
+    });
 });

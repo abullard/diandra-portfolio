@@ -11,6 +11,12 @@
 # production
 /build
 
+# images
+/src/assets/dynamic_photos/photography/*
+/src/assets/dynamic_photos/art/*
+/src/assets/dynamic_photos/architecture/*
+/src/assets/images.json
+
 # misc
 .DS_Store
 .env.local

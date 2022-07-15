@@ -1,19 +1,20 @@
 import { useEffect, useState } from 'react';
-import { chance } from '../utils/setup-chance';
-import { fileSystemService } from '../scripts/fileSystemService';
+import { PhotoCategory } from '../scripts/generateJson';
+import imageJson from '../assets/images.json';
 
-export interface PhotoModel {
+export interface ImageModel {
     uri: string;
     title?: string;
     category: string;
-    page: string;
+    page: PhotoCategory;
 }
 
-const useImages = (): [PhotoModel[] | undefined] => {
-    const [images, setImages] = useState<PhotoModel[] | undefined>(undefined);
+const useImages = (): [ImageModel[] | undefined] => {
+    const [images, setImages] = useState<ImageModel[] | undefined>(undefined);
 
     useEffect(() => {
-        setImages(fileSystemService.readImageFile());
+        setImages(imageJson);
+        console.log(images);
     }, []);
 
     return [images];
