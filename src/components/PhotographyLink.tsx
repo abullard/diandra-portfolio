@@ -1,10 +1,11 @@
 import React, { useEffect, useState } from "react";
 import { Link } from "react-router-dom";
 import styled from "@emotion/styled";
-import HOME_PHOTO from "../assets/photos/home.jpeg";
-import HOME_LIGHTENED_PHOTO from "../assets/photos/home_lightened.jpeg";
-import OFFICE_PHOTO from "../assets/photos/office.jpeg";
-import OFFICE_LIGHTENED_PHOTO from "../assets/photos/office_lightened.jpeg";
+import HOME_PHOTO from "../assets/static_photos/home.jpeg";
+import HOME_LIGHTENED_PHOTO from "../assets/static_photos/home_lightened.jpeg";
+import OFFICE_PHOTO from "../assets/static_photos/office.jpeg";
+import OFFICE_LIGHTENED_PHOTO from "../assets/static_photos/office_lightened.jpeg";
+import { Colors } from "../utils/Colors";
 
 const PhotographyLink = () => {
   const LINK_TEXT_CAPS = "Photography".toUpperCase();
@@ -63,8 +64,7 @@ const PhotographyLinkTextContainer = styled.div`
 
 const LinkText = styled.h1`
   text-decoration: none;
-  font-family: futura;
-  color: #282c34;
+  color: ${Colors.GRAY};
   font-size: 4rem;
 `;
 
